@@ -20,13 +20,13 @@ function sortList(data) {
 sortList(item);
 
 function getNumberOfString(string) {
-  let number = '';
+  const number = Array.from(string);
+  const index = number.indexOf(',');
 
-  for (const el of string) {
-    if (!isNaN(el)) {
-      number += el;
-    }
-  }
+  number.splice(index, 1, '.');
+  number.splice(0, 1, '');
 
-  return +number;
+  const res = number.join('');
+
+  return res;
 }
